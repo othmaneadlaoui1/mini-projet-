@@ -40,6 +40,8 @@ export default function App() {
                             </li>  
                         </ul>
                     </nav>
+                    <div id="image"><img  src={image} alt="Logo" /></div>
+                    
                     
                     <Routes>
                         <Route path="/home" element={<Home/>} />
