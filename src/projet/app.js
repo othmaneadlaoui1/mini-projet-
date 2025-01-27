@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import style from './style.css';
 import image from './image.png';
 import icone from './icone.png';
-import Home from './home'
+import Home from './home';
+import Contact from './contact'
 
 export default function App() {
     const [bgColor, setBgColor] = useState('#282A35'); 
@@ -28,7 +29,7 @@ export default function App() {
                             <li><Link to="/">LIVERS</Link></li>
                             <li><Link to="/">EMPRUNTER</Link></li>
                             <li><Link to="/">AJOUTER</Link></li>
-                            <li><Link to="/">CONTACT</Link></li>
+                            <li><Link to="/contact">CONTACT</Link></li>
                             <li>
                                 <img onClick={handleImageClick} id="icon"   src={icone}/>
                             </li>
@@ -45,7 +46,7 @@ export default function App() {
                     
                     <Routes>
                         <Route path="/home" element={<Home/>} />
-                        <Route path="/" element={''} />
+                        <Route path="/contact" element={<Contact/>} />
                         <Route path="/" element={''} />
                         <Route path="/" element={''} />
                         <Route path="/" element={''} /> 

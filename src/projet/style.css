@@ -75,13 +75,13 @@ nav ul li a:hover {
     color: white;
 }
 #image {
-    position: absolute; /* Positionnement absolu */
-    bottom: 30px; /* Colle l'image au bas de la page */
-    right: 0; /* Colle l'image à droite de la page */
-    box-shadow: 0 0 10px #28a745; /* Ajoute une ombre verte autour de l'image */
+    position: absolute;
+    bottom: 30px;
+    right: 0; 
+    box-shadow: 0 0 10px #28a745; 
 }
 
 #image img {
-    width: 80px; /* Ajustez la taille de l'image selon vos besoins */
-    height: auto; /* Conserve les proportions de l'image */
+    width: 80px; 
+    height: auto; 
 }
