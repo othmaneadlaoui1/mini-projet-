@@ -16,5 +16,5 @@
     color: #fff;
     flex: 1; 
     min-width: 300px; 
-    z-index: 10;
+    z-index: 100;
 }

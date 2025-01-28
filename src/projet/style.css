@@ -78,10 +78,11 @@ nav ul li a:hover {
     position: absolute;
     bottom: 30px;
     right: 0; 
-    box-shadow: 0 0 10px #28a745; 
+   
+   
 }
 
 #image img {
     width: 80px; 
-    height: auto; 
+    height: 80px; 
 }
