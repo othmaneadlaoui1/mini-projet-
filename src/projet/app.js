@@ -8,6 +8,8 @@ import Home from './home';
 import Contact from './contact'
 import './home.css'; 
 import Emprunter from './emprunter';
+import Ajouter from './ajouter';
+
 
 
 export default function App() {
@@ -46,7 +48,7 @@ export default function App() {
                         <Route path="/home" element={<Home />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/emprunter" element={<Emprunter />} />
-                        <Route path="/" element={''} />
+                        <Route path="/ajouter" element={<Ajouter/>} />
                         <Route path="/" element={''} />
                     </Routes>
                 </>

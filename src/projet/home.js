@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import {  Link } from 'react-router-dom';
 import "./home.css";
 import mobalat from './books/lamobalat.png';
 import rich from './books/rich.png';
 import secret from './books/secret.png';
+import Ajouter from "./ajouter";
 
 const books = [
   {
@@ -60,6 +62,9 @@ function App() {
           </div>
         </div>
       </main>
+      <button><Link to="/ajouter">ajouter</Link></button>
+   
+      
     </div>
   );
 }
