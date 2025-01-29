@@ -2,19 +2,22 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import style from './style.css';
-import image from './image.png';
+import image from './iconbook.png';
 import icone from './icone.png';
 import Home from './home';
 import Contact from './contact'
+import './home.css'; 
+import Emprunter from './emprunter';
+
 
 export default function App() {
-    const [bgColor, setBgColor] = useState('#282A35'); 
+    const [bgColor, setBgColor] = useState('#282A35');
 
     const handleImageClick = () => {
         if (bgColor === '#282A35') {
-            setBgColor('#FFFFFF'); 
+            setBgColor('#FFFFFF');
         }
-        else{
+        else {
             setBgColor('#282A35')
         }
     }
@@ -26,30 +29,25 @@ export default function App() {
                         <ul>
                             <li><img id="img" src={image} alt="Logo" /></li>
                             <li><Link to="/home">HOME</Link></li>
-                            <li><Link to="/">LIVERS</Link></li>
-                            <li><Link to="/">EMPRUNTER</Link></li>
-                            <li><Link to="/">AJOUTER</Link></li>
+                            <li><Link to="/emprunter">EMPRUNTER</Link></li>
                             <li><Link to="/contact">CONTACT</Link></li>
                             <li>
-                                <img onClick={handleImageClick} id="icon"   src={icone}/>
+                                <img onClick={handleImageClick} id="icon" src={icone} />
                             </li>
                             <li>
                                 <div id="log">
                                     <button className="btn signup">Sign Up</button>
                                     <button className="btn login">Log in</button>
                                 </div>
-                            </li>  
+                            </li>
                         </ul>
                     </nav>
-                    <div id="image"><img  src={image} alt="Logo" /></div>
-                    
-                    
                     <Routes>
-                        <Route path="/home" element={<Home/>} />
-                        <Route path="/contact" element={<Contact/>} />
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/emprunter" element={<Emprunter />} />
                         <Route path="/" element={''} />
                         <Route path="/" element={''} />
-                        <Route path="/" element={''} /> 
                     </Routes>
                 </>
             </Router>

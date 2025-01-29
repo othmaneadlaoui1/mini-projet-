@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function emprunter() {
+export default function Emprunter() {
   return (
     <div>test</div>
   )
