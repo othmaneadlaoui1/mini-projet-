@@ -9,6 +9,8 @@ import Contact from './contact'
 import './home.css'; 
 import Emprunter from './emprunter';
 import Ajouter from './ajouter';
+import Login from './login';
+import Signup from './signup';
 
 
 
@@ -38,8 +40,8 @@ export default function App() {
                             </li>
                             <li>
                                 <div id="log">
-                                    <button className="btn signup">Sign Up</button>
-                                    <button className="btn login">Log in</button>
+                                  
+                                    <button className="btn login"><Link  to="/login">Log in</Link></button>
                                 </div>
                             </li>
                         </ul>
@@ -49,7 +51,8 @@ export default function App() {
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/emprunter" element={<Emprunter />} />
                         <Route path="/ajouter" element={<Ajouter/>} />
-                        <Route path="/" element={''} />
+                        <Route path="/login" element={<Login/>} />
+                        <Route path="/signup" element={<Signup/>} />
                     </Routes>
                 </>
             </Router>
