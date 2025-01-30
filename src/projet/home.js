@@ -19,9 +19,33 @@ function Home() {
   const [books, setBooks] = useState(booksData);
   const [selectedBook, setSelectedBook] = useState(booksData[0]);
   const [showForm, setShowForm] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchTerm = (e) => {
+    let value = e.target.value;
+    setSearchTerm(value);
+
+    // Mettre à jour selectedBook avec le premier résultat correspondant
+    const filteredBooks = books.filter((book) =>
+      book.title.toLowerCase().includes(value.toLowerCase())
+    );
+
+    if (filteredBooks.length > 0) {
+      setSelectedBook(filteredBooks[0]);
+    }
+  };
 
   return (
     <div className="container">
+      <div className="searchBar">
+        <input
+          type="text"
+          name="searchBar"
+          id="searchBar"
+          placeholder="Rechercher"
+          onChange={handleSearchTerm}
+        />
+      </div>
       <main className="content">
         {/* Book Details */}
         <div className="book-details">
