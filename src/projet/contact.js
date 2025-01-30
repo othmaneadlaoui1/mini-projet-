@@ -14,7 +14,7 @@ export default function Contact() {
             <div className="info">
                 <h1> Hamza Tijani</h1>
                 <hr />
-                <p>Email : <a href="mailto:othmaneadlaoui@gmail.com">?????@gmail.com</a></p>
+                <p>Email : <a href="mailto:hamzatijani@gmail.com">hamzatijani@gmail.com</a></p>
                 <p>Num : 06000600060</p>
                 <p>Adresse : Souk Sebt</p>
             </div>

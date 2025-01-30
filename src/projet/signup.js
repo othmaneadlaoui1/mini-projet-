@@ -13,7 +13,7 @@ const Signup = () => {
         localStorage.setItem('user', JSON.stringify({ name, email, password }));
         
         // Afficher une alerte de succès
-        alert('Inscription réussie !');
+        alert('Inscription réussie ');
         
         // Réinitialiser les champs du formulaire
         setName('');

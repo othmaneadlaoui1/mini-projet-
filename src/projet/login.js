@@ -14,7 +14,7 @@ const Login = () => {
 
         if (user && user.email === email && user.password === password) {
             setMessage(`Bonjour, ${user.name}!`);
-            alert(`Connexion réussie ! Bonjour, ${user.name}!`);
+            alert(`Connexion succsfly Bonjour, ${user.name}`);
         } else {
             setMessage('Email ou mot de passe incorrect.');
         }

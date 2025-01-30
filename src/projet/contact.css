@@ -1,19 +1,21 @@
 .container {
-    display: flex; 
-    justify-content: center; 
-    flex-wrap: wrap; 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne si nécessaire */
 }
 
 .info {
     border: 2px solid #fff; 
-    padding: 140px;
+    padding: 20px; /* Réduire le padding pour un aspect plus compact */
     margin: 10px; 
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 
                 0 0 30px rgba(255, 255, 255, 0.3); 
     background-color: rgba(0, 0, 0, 0.7); 
     color: #fff;
-    flex: 1; 
-    min-width: 300px; 
+    flex: 1; /* Permet à chaque carte de s'étendre également */
+    min-width: 300px; /* Largeur minimale pour chaque carte */
+    max-width: 400px; /* Limite la largeur maximale des cartes */
     z-index: 100;
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
 }
