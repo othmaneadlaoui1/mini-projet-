@@ -1,191 +1,84 @@
 import React, { useState } from "react";
 import "./home.css";
-import mobalat from './books/lamobalat.png';
-import rich from './books/rich.png';
-import secret from './books/secret.png';
+import mobalat from "./books/lamobalat.png";
+import rich from "./books/rich.png";
+import secret from "./books/secret.png";
+import powerOfHabbit from "./books/power-of-habit.png";
+import gestienSoi from "./books/le-gestien-de-soi.png";
+import Ajouter from "./ajouter";
 
-const initialBooks = [
-  {
-    id: 1,
-    title: "Origin",
-    author: "Dan Brown",
-    narrator: "Paul Michael",
-    rating: 4.5,
-    duration: "18 hrs 10 mins",
-    description:
-      "Origin is a 2017 mystery thriller novel by American author Dan Brown and the fifth installment in his Robert Langdon series.",
-    cover: mobalat,
-  },
-  { 
-    id: 2, 
-    title: "The Other Woman", 
-    author: "Daniel Silva", 
-    cover: rich 
-  },
-  { 
-    id: 3, 
-    title: "Outsider", 
-    author: "Stephen King", 
-    cover: secret 
-  },
+const booksData = [
+  { id: 1, title: "The Secret", author: "Rhonda Byrne", date: "2006", genre: "Développement personnel", description: "Le livre de Rhonda Byrne « Le Secret » est basé sur la loi de l'attraction.", cover: secret },
+  { id: 2, title: "Rich Dad Poor Dad", author: "Robert Kiyosaki", date: "1997", genre: "Économie, Développement personnel", description: "Un livre sur la sagesse financière et les stratégies pour bâtir la richesse.", cover: rich },
+  { id: 3, title: "The Subtle Art of Not Giving a F*ck", author: "Mark Manson", date: "2016", genre: "Développement personnel, Psychologie", description: "Un guide pour apprendre à se concentrer sur l'essentiel.", cover: mobalat },
+  { id: 4, title: "La gestion de soi", author: "Jacques Van Rillaer", date: "1992", genre: "Sciences humaines et sociales", description: "Gérer ses impulsions et ses actions pour atteindre le bien-être.", cover: gestienSoi },
+  { id: 5, title: "The Power of Habit", author: "Charles Duhigg", date: "2012", genre: "Psychologie, Sciences sociales", description: "Exploration de la science des habitudes.", cover: powerOfHabbit },
 ];
 
-function App() {
-  const [books, setBooks] = useState(initialBooks);
-  const [selectedBook, setSelectedBook] = useState(initialBooks[0]);
+function Home() {
+  const [books, setBooks] = useState(booksData);
+  const [selectedBook, setSelectedBook] = useState(booksData[0]);
   const [showForm, setShowForm] = useState(false);
-  const [newBook, setNewBook] = useState({
-    title: "",
-    author: "",
-    genre: "",
-    description: "",
-    cover: "",
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewBook((prevBook) => ({ ...prevBook, [name]: value }));
-  };
-
-  const handleAddBook = () => {
-    if (
-      newBook.title &&
-      newBook.author &&
-      newBook.genre &&
-      newBook.description &&
-      newBook.cover
-    ) {
-      setBooks((prevBooks) => [
-        ...prevBooks,
-        {
-          ...newBook,
-          id: prevBooks.length + 1,
-          cover: newBook.cover, // URL de l'image
-        },
-      ]);
-      setNewBook({
-        title: "",
-        author: "",
-        genre: "",
-        description: "",
-        cover: "",
-      });
-      setShowForm(false);
-    } else {
-      alert("Veuillez remplir tous les champs !");
-    }
-  };
 
   return (
     <div className="container">
-      {/* Main Content */}
       <main className="content">
         {/* Book Details */}
         <div className="book-details">
           <div className="book-info">
             <h1>{selectedBook.title}</h1>
             <p className="author">
-              By <span>{selectedBook.author}</span> &nbsp; Read by{" "}
-              <span>{selectedBook.narrator || "Unknown"}</span>
+              Par <span>{selectedBook.author}</span> &nbsp; en <span>{selectedBook.date || "Unknown"}</span>
             </p>
-            <p className="rating">
-              ⭐ {selectedBook.rating} &nbsp; ⏳ {selectedBook.duration}
-            </p>
-            <p className="description">{selectedBook.description}</p>
+            <p className="genre">Genre : {selectedBook.genre}</p>
+
+            <p className="description">Description : {selectedBook.description}</p>
+
+            <div className="point-vue">
+              <label for="rating">Évaluez le livre :</label>
+              <select id="rating">
+                <option value="" selected>Sélectionnez une note :</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+              </select><br />
+              <label for="commentaire">Laissez un commentaire :</label>
+              <textarea id="commentaire" placeholder="Écrivez votre avis ici..."></textarea>
+              <button type="submit">Soumettre l'avis</button>
+            </div>
+
             <div className="buttons">
               <button className="wish-list">Emprunter</button>
             </div>
+
           </div>
           <div className="book-cover">
             <img src={selectedBook.cover} alt={selectedBook.title} />
           </div>
         </div>
 
-        {/* Similar Books */}
+        {/* autre Books */}
         <div className="similar-books">
-          <h2>MORE SIMILAR BOOKS</h2>
+          <h2>PLUS DE LIVRES SIMILAIRES</h2>
           <div className="books-list">
             {books
               .filter((book) => book.id !== selectedBook.id)
               .map((book) => (
-                <div
-                  key={book.id}
-                  className="book-card"
-                  onClick={() => setSelectedBook(book)}
-                >
+                <div key={book.id} className="book-card" onClick={() => setSelectedBook(book)}>
                   <img src={book.cover} alt={book.title} />
+                  <p>{book.title}</p>
                 </div>
               ))}
           </div>
         </div>
       </main>
 
-      {/* Add Book Button */}
-      <button className="add-book-btn" onClick={() => setShowForm(!showForm)}>
-        Ajouter un livre
-      </button>
-
-      {/* Add Book Form */}
-      {showForm && (
-        <div className="add-book-form">
-          <h2>Ajouter un nouveau livre</h2>
-          <form className="ajouter">
-            <div>
-              <label htmlFor="title">Titre :</label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                value={newBook.title}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="author">Auteur :</label>
-              <input
-                type="text"
-                id="author"
-                name="author"
-                value={newBook.author}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="genre">Genre :</label>
-              <input
-                type="text"
-                id="genre"
-                name="genre"
-                value={newBook.genre}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="description">Détails :</label>
-              <textarea
-                id="description"
-                name="description"
-                value={newBook.description}
-                onChange={handleInputChange}
-              ></textarea>
-            </div>
-            <div>
-              <label htmlFor="cover">Image :</label>
-              <input
-                type="file"
-                id="cover"
-                name="cover"
-                onChange={(e) => handleInputChange({ target: { name: 'cover', value: e.target.files[0] } })}
-              />
-            </div>
-            <button type="button" onClick={handleAddBook}>
-              Ajouter
-            </button>
-          </form>
-        </div>
-      )}
+      <button className="add-book-btn" onClick={() => setShowForm(!showForm)}>Ajouter un livre</button>
+      {showForm && <Ajouter books={books} setBooks={setBooks} setShowForm={setShowForm} />}
     </div>
   );
 }
 
-export default App;
+export default Home;
