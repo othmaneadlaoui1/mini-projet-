@@ -1,4 +1,10 @@
 /* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #141414; /* Fond sombre */
+    color: #6b6b6b; /* Couleur du texte */
+}
 
 /* Main Container */
 .container {
@@ -6,7 +12,22 @@
     width: 90%;
     max-width: 1200px;
 }
-
+.searchBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+    padding: 0;
+   
+    position: absolute; 
+    top: 10%; 
+    left: 30%; 
+}
+#searchBar{
+    border-radius: 20px;
+    background-color: #141414;
+    border: 2px solid #fff;
+}
 /* Sidebar */
 .sidebar {
     width: 60px;
@@ -38,7 +59,7 @@
 
 .sidebar nav ul li:hover {
     opacity: 1;
-    color: #f4c542;
+    color: #f4c542; /* Couleur au survol */
 }
 
 /* Content */
@@ -47,6 +68,10 @@
     margin-left: 20px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    top:10%;
+    left:7%;
+   
 }
 
 /* Book Details */
@@ -54,9 +79,12 @@
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     display: flex;
+    top:100px;
     justify-content: space-between;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    
+    
 }
 
 .book-info {
@@ -74,12 +102,12 @@
 }
 
 .book-info .author span {
-    color: #f4c542;
+    color: #f4c542; /* Couleur pour le nom de l'auteur */
 }
 
 .book-info .rating {
     margin: 10px 0;
-    color: #f4c542;
+    color: #f4c542; /* Couleur de la note */
 }
 
 .book-info .description {
@@ -90,29 +118,34 @@
 
 .buttons {
     margin-top: 20px;
+   
+   
+  
 }
 
 button {
-    border: none;
+ 
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
+   
 }
 
 .listen-now {
-    background-color: #f4c542;
+    background-color: #f4c542; /* Couleur du bouton d'écoute */
     color: black;
 }
 
 .wish-list {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
+    border: 2px solid #141414;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    background-color: #f4c542; 
     margin-left: 10px;
 }
 
 button:hover {
-    opacity: 0.8;
+    opacity: 0.8; /* Effet au survol */
 }
 
 /* Book Cover */
@@ -145,101 +178,39 @@ button:hover {
 }
 
 .book-card img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Effet de mise à l'échelle au survol */
 }
-
-
-
-/*body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #282A35; 
-}
-
-.welcome-container {
+.add-book-btn{
     display: flex;
+    position: relative;
+    border: 2px solid #141414;
+    border-radius: 10px;
+    background-color: #f4c542;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+              
+   
+    top: 20%; /* Centrer verticalement */
+    left: -15%; 
+
+}
+
+/* Styles pour le formulaire */
+.add-book-form {
+    display: flex;
+    flex-direction: column;
+    color: #f0f0f0;
     justify-content: center;
     align-items: center;
-    height: 100vh; 
+    width: 300px; /* Largeur du formulaire */
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+                0 0 30px rgba(135, 125, 14, 0.3);
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed; /* Position fixe pour centrer */
+    top: 56%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Ajustement pour un véritable centrage */
+    z-index: 1000; /* Assurez-vous que le formulaire est au-dessus des autres éléments */
 }
-
-.welcome-box {
-    padding: 20px; 
-    border: 2px solid #28a745; 
-    border-radius: 10px; 
-    box-shadow: 0 0 20px rgba(40, 167, 69, 0.5); 
-    background-color: rgba(40, 167, 69, 0.1); 
-    text-align: center; 
-}
-
-.welcome-message {
-    font-size: 2.5rem;
-    color: #28a745; 
-    opacity: 0; 
-    transform: translateY(-50px); 
-    animation: fadeInUp 1s forwards; 
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px); 
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0); 
-    }
-}
-    */
-    .container {
-        display: flex;
-        justify-content: center; /* Centers content horizontally */
-        align-items: center; /* Centers content vertically */
-        min-height: 100vh; /* Ensures the container takes the full height of the viewport */
-        width: 100%;
-    }
-    
-    .ajouter {
-        display: flex; 
-        flex-direction: column;
-        color: #f0f0f0;
-        justify-content: center; 
-        align-items: center; 
-        width: 20cm; /* Or adjust as needed */
-        padding: 30px;
-        border: 2px solid #fff; 
-        border-radius: 5px;
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 
-                    0 0 30px rgba(255, 255, 255, 0.3);
-        background-color: rgba(0, 0, 0, 0.7); 
-    }
-    
-    input[type="text"],
-    input[type="file"],
-    textarea {
-        width: 80%; /* Largeur des champs de texte */
-        padding: 10px;
-        margin: 10px 0; /* Espacement entre les champs */
-        border: none;
-        border-radius: 5px;
-        background-color: #333; /* Fond sombre pour les champs */
-        color: #fff; /* Couleur du texte */
-    }
-    
-    input[type="file"] {
-        padding: 0; /* Supprime le padding par défaut */
-    }
-    
-    button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #222;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    
-    button:hover {
-        background-color: #f0f0f0; /* Légère modification de la couleur au survol */
-    }

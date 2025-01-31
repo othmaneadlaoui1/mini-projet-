@@ -37,6 +37,7 @@ function Home() {
 
   return (
     <div className="container">
+    
       <div className="searchBar">
         <input
           type="text"
@@ -70,7 +71,7 @@ function Home() {
               </select><br />
               <label for="commentaire">Laissez un commentaire :</label>
               <textarea id="commentaire" placeholder="Écrivez votre avis ici..."></textarea>
-              <button type="submit">Soumettre l'avis</button>
+              <button className="wish-list" type="submit">Soumettre l'avis</button>
             </div>
 
             <div className="buttons">
@@ -92,7 +93,7 @@ function Home() {
               .map((book) => (
                 <div key={book.id} className="book-card" onClick={() => setSelectedBook(book)}>
                   <img src={book.cover} alt={book.title} />
-                  <p>{book.title}</p>
+                 {/* <p>{book.title}</p>*/}
                 </div>
               ))}
           </div>

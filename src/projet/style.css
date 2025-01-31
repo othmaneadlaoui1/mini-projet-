@@ -2,6 +2,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background:#141414;
+  
 }
 nav {
     background-color: #9B9999;
@@ -44,10 +46,10 @@ nav ul li a:hover {
 
 #log {
     display: flex;
-    margin-left: 270px;
+    margin-left: 590px;
 }
 .btn {
-    padding: 10px 20px; 
+    padding: 1px 20px; 
     border: none;
     border-radius: 20px;
     font-size: 16px;
@@ -55,13 +57,10 @@ nav ul li a:hover {
     transition: background-color 0.3s; 
 }
 
-.signup {
-    background-color: #28a745;
-    color: white; 
-}
 
-.login {
+.btnlogin {
     background-color: #f8f9fa;
+    
     color: #28a745; 
     border: 2px solid #28a745; 
 }
@@ -74,15 +73,5 @@ nav ul li a:hover {
     background-color: #28a745; 
     color: white;
 }
-#image {
-    position: absolute;
-    bottom: 30px;
-    right: 0; 
-   
-   
-}
 
-#image img {
-    width: 80px; 
-    height: 80px; 
-}
+

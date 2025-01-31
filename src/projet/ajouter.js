@@ -36,11 +36,11 @@ function Ajouter({ books, setBooks, setShowForm }) {
     <div className="add-book-form">
       <h2>Ajouter un nouveau livre</h2>
       <form>
-        <label>Titre : <input type="text" name="title" value={newBook.title} onChange={handleInputChange} /></label>
-        <label>Auteur : <input type="text" name="author" value={newBook.author} onChange={handleInputChange} /></label>
-        <label>Genre : <input type="text" name="genre" value={newBook.genre} onChange={handleInputChange} /></label>
-        <label>Description : <textarea name="description" value={newBook.description} onChange={handleInputChange}></textarea></label>
-        <label>Image : <input type="file" accept="image/*" onChange={handleFileChange} /></label>
+        <label>Titre :</label> <input type="text" name="title" value={newBook.title} onChange={handleInputChange} />
+        <label>Auteur :</label> <input type="text" name="author" value={newBook.author} onChange={handleInputChange} />
+        <label>Genre :</label> <input type="text" name="genre" value={newBook.genre} onChange={handleInputChange} />
+        <label>Description : </label><textarea name="description" value={newBook.description} onChange={handleInputChange}></textarea>
+        <label>Image : </label><input type="file" accept="image/*" onChange={handleFileChange} />
         <button type="button" onClick={handleAddBook}>Ajouter</button>
       </form>
     </div>

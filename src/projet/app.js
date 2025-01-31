@@ -16,14 +16,14 @@ import SearchResults from './SearchResults';
 
 
 export default function App() {
-    const [bgColor, setBgColor] = useState('#282A35');
+    const [bgColor, setBgColor] = useState('#141414');
 
     const handleImageClick = () => {
-        if (bgColor === '#282A35') {
+        if (bgColor === '#141414') {
             setBgColor('#FFFFFF');
         }
         else {
-            setBgColor('#282A35')
+            setBgColor('#141414')
         }
     }
     return (
