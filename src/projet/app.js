@@ -16,21 +16,21 @@ import SearchResults from './SearchResults';
 
 
 export default function App() {
-    const [bgColor, setBgColor] = useState('#141414');
+    const [bgColor, setBgColor] = useState('gray');
 
     const handleImageClick = () => {
-        if (bgColor === '#141414') {
+        if (bgColor === 'gray') {
             setBgColor('#FFFFFF');
         }
         else {
-            setBgColor('#141414')
+            setBgColor('gray')
         }
     }
     return (
         <div style={{ backgroundColor: bgColor, minHeight: '100vh', transition: 'background-color 0.3s' }}>
             <Router>
                 <>
-                    <nav>
+                    <nav >
                         <ul>
                             <li><img id="img" src={image} alt="Logo" /></li>
                             <li><Link to="/home">HOME</Link></li>

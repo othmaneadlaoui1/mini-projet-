@@ -59,11 +59,12 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+    color: black;
   }
   
   /* Message s'il n'y a pas de livres empruntés */
   .no-books {
     font-size: 18px;
-    color: #777;
+    color: #0c0c0c;
   }
   

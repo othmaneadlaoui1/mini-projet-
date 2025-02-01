@@ -2,8 +2,15 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #141414; /* Fond sombre */
-    color: #6b6b6b; /* Couleur du texte */
+    background-color: yellow; /* Fond sombre */
+    color: #adaaaa; /* Couleur du texte */
+
+}
+#w{
+    color: #f4c542;
+}
+#q{
+    color: #141414;
 }
 
 /* Main Container */
@@ -76,7 +83,7 @@ body {
 
 /* Book Details */
 .book-details {
-    background: rgba(255, 255, 255, 0.1);
+    background: black;
     padding: 20px;
     display: flex;
     top:100px;
@@ -189,8 +196,8 @@ button:hover {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
               
    
-    top: 20%; /* Centrer verticalement */
-    left: -15%; 
+    top: 23%; /* Centrer verticalement */
+    left: -5%; 
 
 }
 
@@ -207,10 +214,30 @@ button:hover {
     border-radius: 10px; /* Bords arrondis */
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
                 0 0 30px rgba(135, 125, 14, 0.3);
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color:black;
     position: fixed; /* Position fixe pour centrer */
     top: 56%; /* Centrer verticalement */
     left: 50%; /* Centrer horizontalement */
     transform: translate(-50%, -50%); /* Ajustement pour un véritable centrage */
     z-index: 1000; /* Assurez-vous que le formulaire est au-dessus des autres éléments */
 }
+.borrow-form{
+    
+        display: flex;
+        flex-direction:column;
+        color: #f0f0f0;
+        justify-content: center;
+        align-items: center;
+       
+        padding: 10px;
+        border: 2px solid #fff;
+        border-radius: 10px; /* Bords arrondis */
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+                    0 0 30px rgba(135, 125, 14, 0.3);
+        background-color: black;
+        position: fixed; /* Position fixe pour centrer */
+        top: 56%; /* Centrer verticalement */
+        left: 50%; /* Centrer horizontalement */
+        transform: translate(-50%, -50%); /* Ajustement pour un véritable centrage */
+        z-index: 1000; /* Assurez-vous que le formulaire est au-dessus des autres éléments */
+    }

@@ -5,20 +5,13 @@ function Emprunter() {
   const [borrowedBooks, setBorrowedBooks] = useState([]);
 
   useEffect(() => {
+    // Charger les livres empruntés depuis le localStorage au montage du composant
     const books = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
     setBorrowedBooks(books);
   }, []);
 
-  const handleBorrow = (book) => {
-    let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
-    if (!borrowedBooks.some((b) => b.id === book.id)) {
-      borrowedBooks.push(book);
-      localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
-      alert(`${book.title} a été emprunté avec succès !`);
-    }
-  };
-
   const handleRemove = (bookId) => {
+    // Supprimer un livre emprunté
     const updatedBooks = borrowedBooks.filter((book) => book.id !== bookId);
     setBorrowedBooks(updatedBooks);
     localStorage.setItem("borrowedBooks", JSON.stringify(updatedBooks));
@@ -28,16 +21,30 @@ function Emprunter() {
     <div className="borrowed-container">
       <h2 className="borrowed-title">Livres Empruntés</h2>
       {borrowedBooks.length === 0 ? (
-        <p className="no-books">Aucun livre emprunté.</p>
+        <p className="no-books">Aucun livre emprunté pour le moment.</p>
       ) : (
         <div className="borrowed-books-list">
-          {borrowedBooks.map((book) => (
-            <div key={book.id} className="borrowed-book">
-              <img src={book.cover} alt={book.title} className="book-cover"/>
+          {borrowedBooks.map((book, index) => (
+            <div key={index} className="borrowed-book">
+              <img src={book.cover} alt={book.title} className="book-cover" />
               <div className="book-info">
                 <h3 className="book-title">{book.title}</h3>
                 <p className="book-author">Par {book.author}</p>
-                <button className="remove-button" onClick={() => handleRemove(book.id)}>Supprimer</button>
+                <p className="borrower-name">
+                  <strong>Emprunté par :</strong> {book.borrowerName}
+                </p>
+                <p className="borrow-dates">
+                  <strong>Dates :</strong> {book.startDate} - {book.endDate}
+                </p>
+                <p className="borrower-email">
+                  <strong>Email :</strong> {book.borrowerEmail}
+                </p>
+                <button
+                  className="remove-button"
+                  onClick={() => handleRemove(book.id)}
+                >
+                  Supprimer
+                </button>
               </div>
             </div>
           ))}
