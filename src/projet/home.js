@@ -6,6 +6,7 @@ import secret from "./books/secret.png";
 import powerOfHabbit from "./books/power-of-habit.png";
 import gestienSoi from "./books/le-gestien-de-soi.png";
 import Ajouter from "./ajouter";
+import Emprunter from "./emprunter"; // Assurez-vous d'avoir ce fichier pour le formulaire d'emprunt
 
 const booksData = [
   { id: 1, title: "The Secret", author: "Rhonda Byrne", date: "2006", genre: "Développement personnel", description: "Le livre de Rhonda Byrne « Le Secret » est basé sur la loi de l'attraction.", cover: secret },
@@ -18,7 +19,8 @@ const booksData = [
 function Home() {
   const [books, setBooks] = useState(booksData);
   const [selectedBook, setSelectedBook] = useState(booksData[0]);
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(false);  // État pour afficher le formulaire d'ajout
+  const [showBorrowForm, setShowBorrowForm] = useState(false);  // État pour afficher le formulaire d'emprunt
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchTerm = (e) => {
@@ -33,6 +35,15 @@ function Home() {
     if (filteredBooks.length > 0) {
       setSelectedBook(filteredBooks[0]);
     }
+  };
+
+  const handleBorrow = (book) => {
+    let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+    if (!borrowedBooks.some((b) => b.id === book.id)) {
+      borrowedBooks.push(book);
+      localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
+    }
+    setShowBorrowForm(true);  // Afficher le formulaire d'emprunt après clic sur "Brow"
   };
 
   return (
@@ -75,7 +86,7 @@ function Home() {
             </div>
 
             <div className="buttons">
-              <button className="wish-list">Emprunter</button>
+              <button className="wish-list" onClick={() => handleBorrow(selectedBook)}>Brow</button>
             </div>
 
           </div>
@@ -84,7 +95,7 @@ function Home() {
           </div>
         </div>
 
-        {/* autre Books */}
+        {/* Autres livres */}
         <div className="similar-books">
           <h2>PLUS DE LIVRES SIMILAIRES</h2>
           <div className="books-list">
@@ -99,6 +110,32 @@ function Home() {
           </div>
         </div>
       </main>
+
+      {/* Affichage du formulaire d'emprunt */}
+      {showBorrowForm && (
+        <div className="borrow-form">
+          <h3>Formulaire d'Emprunt</h3>
+          <form>
+            <label>
+              Nom:
+              <input type="text" required />
+            </label>
+            <label>
+              Date de début:
+              <input type="date" required />
+            </label>
+            <label>
+              Date de fin:
+              <input type="date" required />
+            </label>
+            <label>
+              Email:
+              <input type="email" required />
+            </label>
+            <button type="submit">Soumettre</button>
+          </form>
+        </div>
+      )}
 
       <button className="add-book-btn" onClick={() => setShowForm(!showForm)}>Ajouter un livre</button>
       {showForm && <Ajouter books={books} setBooks={setBooks} setShowForm={setShowForm} />}

@@ -1,0 +1,69 @@
+/* Définir la taille uniforme des images des livres */
+.book-cover {
+    width: 150px; /* Largeur des images */
+    height: 200px; /* Hauteur des images */
+    object-fit: cover; /* Assure que l'image garde son rapport d'aspect et couvre entièrement l'espace alloué */
+    border-radius: 8px; /* Optionnel : arrondir les coins des images */
+    margin-right: 15px; /* Espace entre l'image et le texte */
+  }
+  
+  /* Container pour chaque livre emprunté */
+  .borrowed-book {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Conteneur pour l'information du livre */
+  .book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Style pour le titre du livre */
+  .book-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+  }
+  
+  /* Style pour le nom de l'auteur */
+  .book-author {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* Bouton pour supprimer le livre emprunté */
+  .remove-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove-button:hover {
+    background-color: #c0392b; /* Change la couleur lors du survol */
+  }
+  
+  /* Titre de la section "Livres Empruntés" */
+  .borrowed-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Message s'il n'y a pas de livres empruntés */
+  .no-books {
+    font-size: 18px;
+    color: #777;
+  }
+  
