@@ -1,9 +1,10 @@
-// src/redux/store.js
-import { configureStore} from '@reduxjs/toolkit';
-import booksReducer from './booksSlice';
+// redux/store.js
+import { configureStore } from '@reduxjs/toolkit';
+import bookSlice from '../redux/booksSlice'; // On va créer ce fichier plus tard
 
 export const store = configureStore({
   reducer: {
-    books: booksReducer, // Gère l'état des livres
+    theme: bookSlice, // Le reducer pour l'état du thème
   },
 });
+export default store; 
