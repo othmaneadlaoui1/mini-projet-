@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -73,5 +72,45 @@ nav ul li a:hover {
     background-color: #28a745; 
     color: white;
 }
+@keyframes slideUpFadeOut {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
+@keyframes shockEffect {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
 
+#welcom {
+    position: fixed;
+    bottom: 250px;
+    left: 25%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border: 5px solid yellow; /* Bordure plus épaisse */
+    border-radius: 10px;
+    font-size: 32px; /* Texte plus grand */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: yellow; /* Texte jaune */
+    background: transparent;
+    text-align: center;
+    box-shadow: 8px 8px 30px black; /* Box shadow agrandi */
+    animation: shockEffect 0.2s infinite alternate, slideUpFadeOut 3s ease-out forwards;
+}

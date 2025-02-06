@@ -142,14 +142,42 @@ button {
     background-color: #f4c542; /* Couleur du bouton d'écoute */
     color: black;
 }
-
-.wish-list {
+.buttons-container {
+    display: flex;
+    gap: 10px; /* Espace entre les boutons */
+    align-items: center; /* Aligne les boutons verticalement */
+  }
+  
+  .brow {
     border: 2px solid #141414;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    background-color: #f4c542; 
-    margin-left: 10px;
-}
+    background-color: #f4c542;
+    padding: 10px 20px; /* Ajustez le padding selon vos besoins */
+    cursor: pointer; /* Change le curseur en pointeur au survol */
+  }
+  
+  .wish-list {
+    border: 2px solid #141414;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    background-color: #f4c542;
+    padding: 10px 20px; /* Ajustez le padding selon vos besoins */
+    cursor: pointer; /* Change le curseur en pointeur au survol */
+  }
+.comments-section {
+    display: flex;
+    align-items: center; /* Aligne verticalement le titre et la liste */
+    gap: 10px; /* Espace entre le titre et la liste */
+  }
+  
+  .comments-section h3 {
+    margin: 0; /* Supprime la marge par défaut du h3 */
+  }
+  
+  .comments-list {
+    flex-grow: 1; /* Permet à la liste de prendre l'espace restant */
+  }
 
 button:hover {
     opacity: 0.8; /* Effet au survol */

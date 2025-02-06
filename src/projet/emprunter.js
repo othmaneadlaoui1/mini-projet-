@@ -41,10 +41,7 @@ function Emprunter() {
                 </p>
                 <button
                   className="remove-button"
-                  onClick={() => handleRemove(book.id)}
-                >
-                  Supprimer
-                </button>
+                  onClick={() => handleRemove(book.id)}> Return </button>
               </div>
             </div>
           ))}
